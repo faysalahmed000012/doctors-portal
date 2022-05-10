@@ -5,29 +5,29 @@ const Contact = () => {
   return (
     <section
       style={{ background: `url(${background})` }}
-      className="mt-14 py-16"
+      className="mt-14 py-16 px-9"
     >
-      <h2 className="text-center text-primary text-lg font-semibold">
+      <h2 className="text-center text-primary text-xl font-semibold">
         Contact Us
       </h2>
-      <h3 className="text-center text-2xl text-white">
+      <h3 className="text-center text-4xl text-white">
         Stay connected with us
       </h3>
 
-      <div className="flex flex-col items-center justify-center">
-        <form className="mt-10" action="">
+      <div className="flex flex-col lg:items-center  justify-center">
+        <form className="mt-10 px-auto lg:px-0" action="">
           <input
             type="Email"
             placeholder="Email Address"
-            className="input input-bordered w-full"
+            className="input block mx-auto lg:inline input-bordered border-primary w-full"
           />
           <input
             type="text"
             placeholder="Subject"
-            className="input input-bordered w-full my-5"
+            className="input block mx-auto lg:inline  input-bordered border-primary w-full my-5"
           />
           <textarea
-            className="textarea textarea-bordered w-full block mb-5"
+            className="textarea  mx-auto  textarea-bordered border-primary w-full block mb-5"
             placeholder="Your Message"
           ></textarea>
           <button

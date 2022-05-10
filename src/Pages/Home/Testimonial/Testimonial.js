@@ -31,11 +31,11 @@ const Testimonial = () => {
   ];
 
   return (
-    <section className="ml-4 mt-20 px-12">
+    <section className="ml-4 mt-20 px-5 lg:px-12">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-md text-primary font-semibold">Testimonial</h2>
-          <h3 className="text-2xl">What Our Patients Says</h3>
+          <h2 className="text-xl text-primary font-semibold">Testimonial</h2>
+          <h3 className="text-4xl mb-20">What Our Patients Says</h3>
         </div>
         <div>
           <img src={quote} className="w-24 lg:w-48" alt="" />

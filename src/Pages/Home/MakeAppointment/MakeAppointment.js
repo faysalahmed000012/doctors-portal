@@ -7,12 +7,12 @@ const MakeAppointment = () => {
   return (
     <section
       style={{ background: `url(${background})` }}
-      className="flex items-center justify-center mt-64 w-full"
+      className="flex items-center justify-center mt-36 w-full"
     >
       <div className="flex-1 hidden lg:block">
-        <img className="mt-[-100px]" src={doctor} alt="" />
+        <img className="mt-[-120px]" src={doctor} alt="" />
       </div>
-      <div className="flex-1 pr-20">
+      <div className="flex-1 pr-20 pl-6 lg:pl-0 py-6">
         <h2 className="text-primary text-xl text-md font-bold">Appointment</h2>
         <h2 className=" text-3xl text-white my-6">Make an appointment Today</h2>
         <p className="text-white mb-5">

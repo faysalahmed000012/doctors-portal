@@ -5,12 +5,12 @@ import PrimaryBtn from "../../Shared/PrimaryBtn/PrimaryBtn";
 const Banner = () => {
   return (
     <div>
-      <div className="hero min-h-screen px-12">
+      <div className="hero min-h-screen px-6 lg:px-12">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="flex-1">
             <img
               src={chair}
-              className=" rounded-lg shadow-2xl w-10/12 ml-auto "
+              className=" rounded-lg shadow-2xl w-full lg:w-10/12 ml-auto "
               alt=""
             />
           </div>

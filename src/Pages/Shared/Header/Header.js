@@ -1,26 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CustomLink from "../../../CustomLink/CustomLink";
 
 const Header = () => {
   const menu = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <CustomLink to="/">Home</CustomLink>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <CustomLink to="/about">About</CustomLink>
       </li>
       <li>
-        <Link to="/appointment">Appointment</Link>
+        <CustomLink to="/appointment">Appointment</CustomLink>
       </li>
       <li>
-        <Link to="/reviews">Reviews</Link>
+        <CustomLink to="/reviews">Reviews</CustomLink>
       </li>
       <li>
-        <Link to="/contact">Contact</Link>
+        <CustomLink to="/contact">Contact</CustomLink>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <CustomLink to="/login">Login</CustomLink>
       </li>
     </>
   );
@@ -46,14 +47,14 @@ const Header = () => {
           </label>
           <ul
             tabIndex="0"
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 shadow bg-base-100 rounded-box w-52"
           >
             {menu}
           </ul>
         </div>
         <a className="btn btn-ghost normal-case text-xl">Doctors Portal</a>
       </div>
-      <div className="ml-auto hidden lg:flex">
+      <div className="ml-auto p-0 hidden lg:flex">
         <ul className="menu menu-horizontal p-0 ml-auto gap-2">{menu}</ul>
       </div>
     </div>
