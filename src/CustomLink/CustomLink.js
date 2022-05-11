@@ -7,7 +7,14 @@ function CustomLink({ children, to, ...props }) {
 
   return (
     <div className="px-3 py-0">
-      <Link className={match && "btn btn-accent text-white"} to={to} {...props}>
+      <Link
+        className={
+          match &&
+          "bg-gray-300 w-full rounded lg:btn lg:btn-accent lg:text-white"
+        }
+        to={to}
+        {...props}
+      >
         {children}
       </Link>
     </div>
