@@ -8,12 +8,14 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import useToken from "../../Hooks/useToken";
 
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -25,12 +27,17 @@ const Signup = () => {
     await updateProfile({ displayName: data.name });
   };
 
+  const [token] = useToken(user);
+
   if (loading || updating) {
     return <Loading></Loading>;
   }
   let errorElement;
   if (error || updateError) {
     errorElement = <p className="text-red-600 text-sm mb-1">{error.message}</p>;
+  }
+  if (token) {
+    navigate("/appointment");
   }
   return (
     <>

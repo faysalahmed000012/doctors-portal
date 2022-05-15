@@ -13,8 +13,15 @@ import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyAppointment from "./Pages/Dashboard/MyAppointment";
 import Review from "./Pages/Dashboard/Review";
+import Users from "./Pages/Dashboard/Users";
+import auth from "./firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import useAdmin from "./Hooks/useAdmin";
+import RequireAdmin from "./RequireAuth/RequireAdmin";
 
 function App() {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <div className="">
       <Header></Header>
@@ -39,6 +46,14 @@ function App() {
         >
           <Route index element={<MyAppointment></MyAppointment>}></Route>
           <Route path="review" element={<Review></Review>}></Route>
+          <Route
+            path="users"
+            element={
+              <RequireAdmin>
+                <Users></Users>
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>

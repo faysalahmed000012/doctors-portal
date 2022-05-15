@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading/Loading";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -22,6 +23,12 @@ const Login = () => {
 
     console.log(data);
   };
+  const [token] = useToken(user);
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
 
   if (loading) {
     return <Loading></Loading>;
@@ -30,9 +37,7 @@ const Login = () => {
   if (error) {
     errorElement = <p className="text-red-600 text-sm mb-1">{error.message}</p>;
   }
-  if (user) {
-    navigate(from, { replace: true });
-  }
+
   return (
     <>
       <div className="h-screen  flex items-center justify-center">

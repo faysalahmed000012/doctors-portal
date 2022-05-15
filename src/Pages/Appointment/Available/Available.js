@@ -24,11 +24,6 @@ const Available = ({ date }) => {
     return <Loading></Loading>;
   }
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/available?date=${formattedDate}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setServices(data));
-  // }, [formattedDate]);
   return (
     <div className="px-6 lg:px-12 mt-6">
       <h3 className="text-center font-bold text-primary text-2xl my-5">

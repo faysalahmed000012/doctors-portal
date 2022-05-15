@@ -32,7 +32,13 @@ const Header = () => {
 
       <li>
         {user ? (
-          <button className="" onClick={() => signOut(auth)}>
+          <button
+            className=""
+            onClick={() => {
+              signOut(auth);
+              localStorage.removeItem("accessToken");
+            }}
+          >
             Sign&nbsp;out
           </button>
         ) : (
@@ -68,14 +74,16 @@ const Header = () => {
             {menu}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Doctors Portal</a>
+        <a href="#" className="btn btn-ghost normal-case text-xl">
+          Doctors Portal
+        </a>
       </div>
       <div className="ml-auto p-0 hidden lg:flex">
         <ul className="menu menu-horizontal p-0 ml-auto gap-2">{menu}</ul>
       </div>
       <div className="navabr-end">
         <label
-          for="dashboard-toggler"
+          htmlFor="dashboard-toggler"
           tabIndex="1"
           className="btn btn-ghost lg:hidden"
         >
@@ -83,7 +91,7 @@ const Header = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            class="inline-block w-5 h-5 stroke-current"
+            className="inline-block w-5 h-5 stroke-current"
           >
             <path
               stroke-linecap="round"
