@@ -18,6 +18,8 @@ import auth from "./firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import useAdmin from "./Hooks/useAdmin";
 import RequireAdmin from "./RequireAuth/RequireAdmin";
+import AddDoctor from "./Pages/Dashboard/AddDoctor";
+import ManageDoctors from "./Pages/Dashboard/ManageDoctors";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -51,6 +53,22 @@ function App() {
             element={
               <RequireAdmin>
                 <Users></Users>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="newdoctor"
+            element={
+              <RequireAdmin>
+                <AddDoctor></AddDoctor>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageDoctors"
+            element={
+              <RequireAdmin>
+                <ManageDoctors></ManageDoctors>
               </RequireAdmin>
             }
           ></Route>
