@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 import Loading from "../Shared/Loading/Loading";
 
 const ManageDoctors = () => {
@@ -17,20 +18,33 @@ const ManageDoctors = () => {
   );
 
   const handleDelete = (email, name) => {
-    fetch(`http://localhost:5000/doctor/${email}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount > 0) {
-          toast.success(`Doctor ${name} deleted successfully`);
-          refetch();
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: `You want to delete doctor ${name}!`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", `Doctor ${name} has been deleted.`, "success");
+
+        fetch(`http://localhost:5000/doctor/${email}`, {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              refetch();
+            }
+          });
+      }
+    });
   };
 
   if (isLoading) {

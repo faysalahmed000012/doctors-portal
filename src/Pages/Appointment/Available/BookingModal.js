@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
   const [user, loading, error] = useAuthState(auth);
-  const { name, slots, _id } = treatment;
+  const { name, slots, _id, price } = treatment;
   const formateDate = format(date, "PP");
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,6 +23,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
       patient: user.email,
       patientName: user.displayName,
       phone: phone,
+      price: price,
     };
     fetch("http://localhost:5000/booking", {
       method: "POST",
