@@ -1,14 +1,13 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import Loading from "../Shared/Loading/Loading";
 
 const AddDoctor = () => {
-  const {
+    const {
     data: services,
     isLoading,
-    refetch,
+   
   } = useQuery("service", () =>
     fetch("http://localhost:5000/services").then((res) => res.json())
   );
@@ -20,7 +19,6 @@ const AddDoctor = () => {
    * 1. Third party storage //Free open public storage is ok for Practice project
    * 2. Your own storage in your own server (file system)
    * 3. Database: Mongodb
-   *
    * YUP: to validate file: Search: Yup file validation for react hook form
    */
 
@@ -74,7 +72,7 @@ const AddDoctor = () => {
     return <Loading></Loading>;
   }
   return (
-    <div>
+    <div className="mx-auto">
       <h3 className="text-2xl font-bold">Add A New Doctor</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full max-w-xs">
@@ -161,7 +159,7 @@ const AddDoctor = () => {
             })}
             type="file"
             placeholder=""
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs cursor-pointer"
           />{" "}
           <label className="label">
             {errors.name?.type === "required" && (

@@ -27,7 +27,7 @@ const MyAppointment = () => {
         })
         .then((data) => setAppointments(data));
     }
-  }, [user]);
+  }, [user, navigate]);
 
   return (
     <div>
